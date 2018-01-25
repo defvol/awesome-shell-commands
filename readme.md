@@ -100,8 +100,8 @@ Querying info about the OS
 
 - Mounted partitions (in human-friendly units): `df -h`
 - Summary of disk space used by directories: `du -hs *`
-- [List virtualbox disks](https://stackoverflow.com/questions/19176359/how-to-get-the-last-commit-id-of-a-remote-repo-using-curl-like-command#19176626): `VBoxManage list hdds`
-- [Close a stuck virtual box disk so you can remove it](https://stackoverflow.com/questions/19176359/how-to-get-the-last-commit-id-of-a-remote-repo-using-curl-like-command#19176626): `VBoxManage closemedium disk 633abeef-c3a0-43b0-b371-1238adeac4c`
+- [List virtualbox disks](https://myshittycode.com/2013/11/23/virtualbox-failed-to-delete-the-storage-unit-of-the-hard-disk-pathhard-disk-vdi-cannot-close-medium-pathhard-disk-vdi-because-it-has-n-child-media/): `VBoxManage list hdds`
+- [Close a stuck virtual box disk so you can remove it](https://myshittycode.com/2013/11/23/virtualbox-failed-to-delete-the-storage-unit-of-the-hard-disk-pathhard-disk-vdi-cannot-close-medium-pathhard-disk-vdi-because-it-has-n-child-media/): `VBoxManage closemedium disk 633abeef-c3a0-43b0-b371-1238adeac4c`
 
 ## Programmer
 
