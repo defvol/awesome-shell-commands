@@ -51,7 +51,7 @@ convert mem-01.gif -fuzz 10% -layers Optimize optimized.gif
 ### Video editing
 
 - Clip video (starting from second 3): `ffmpeg -i take-3.mp4 -ss 00:00:03 -t 00:02:04 output.mp4`
-- Crop video: `ffmpeg -i in.mp4 -filter:v "crop=out_w:out_h:x:y" out.mp4` [[ref]](https://video.stackexchange.com/questions/4563/how-can-i-crop-a-video-with-ffmpeg#4571)
+- [Crop video](https://video.stackexchange.com/questions/4563/how-can-i-crop-a-video-with-ffmpeg#4571): `ffmpeg -i in.mp4 -filter:v "crop=out_w:out_h:x:y" out.mp4`
 - Speed video up: `ffmpeg -i take-4.mp4 -filter:v "setpts=0.5*PTS" take-4-faster.mp4`
 - Remove audio from video: `ffmpeg -i loud.mp4 -c copy -an muted.mp4`
 - Resize video: `ffmpeg -i larger.mp4 -filter:v scale=720:-1 -c:a copy smaller.mp4`
@@ -72,7 +72,7 @@ KEWL
 - Nyancat: `nc -v nyancat.dakko.us 23`
 - Record X11 action: `cnee --record -o automate-this.xnr --mouse --events-to-record 1000 --time 2`
 - Replay X11 action: `cnee --replay -f automate-this.xnr --time 2`
-- Rotate the screen: `xrandr --output HDMI-1 --rotate inverted` [[ref]](https://askubuntu.com/questions/95812/how-can-i-rotate-my-display-in-the-most-easy-way)
+- [Rotate the screen](https://askubuntu.com/questions/95812/how-can-i-rotate-my-display-in-the-most-easy-way): `xrandr --output HDMI-1 --rotate inverted`
 
 ## Networking
 
@@ -100,8 +100,8 @@ Querying info about the OS
 
 - Mounted partitions (in human-friendly units): `df -h`
 - Summary of disk space used by directories: `du -hs *`
-- List virtualbox disks: `VBoxManage list hdds`
-- Close a stuck virtual box disk so you can remove it: `VBoxManage closemedium disk 633abeef-c3a0-43b0-b371-1238adeac4c` [[ref]](https://stackoverflow.com/questions/19176359/how-to-get-the-last-commit-id-of-a-remote-repo-using-curl-like-command#19176626)
+- [List virtualbox disks](https://stackoverflow.com/questions/19176359/how-to-get-the-last-commit-id-of-a-remote-repo-using-curl-like-command#19176626): `VBoxManage list hdds`
+- [Close a stuck virtual box disk so you can remove it](https://stackoverflow.com/questions/19176359/how-to-get-the-last-commit-id-of-a-remote-repo-using-curl-like-command#19176626): `VBoxManage closemedium disk 633abeef-c3a0-43b0-b371-1238adeac4c`
 
 ## Programmer
 
@@ -112,7 +112,7 @@ Optimizing workflow for the lazy programmer
 - Stop all containers: `docker stop $(docker ps -a -q)`
 - Remove all containers: `docker rm $(docker ps -a -q)`
 - Remove all images: `docker rmi $(docker images -q)`
-- Get latest commit id: `echo $(git log --format="%h" -n 1)` [[ref]](https://stackoverflow.com/questions/19176359/how-to-get-the-last-commit-id-of-a-remote-repo-using-curl-like-command#19176626)
+- [Get latest git-commit id](https://stackoverflow.com/questions/19176359/how-to-get-the-last-commit-id-of-a-remote-repo-using-curl-like-command#19176626): `echo $(git log --format="%h" -n 1)`
 - Updating author in git history:
 ```sh
 git rebase -i -p <commit-to-start-from>
