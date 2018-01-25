@@ -5,24 +5,42 @@
 
 ## Contents
 
-- [Section](#section)
-- [Another Section](#another-section)
+- [Hardware specs](#hardware-specs)
+- [Misc](#misc)
+- [Operating system](#operating-system)
+  - [Disk](#disk)
 
 
-## Section
+## Hardware specs
 
-About this section. Optional. Keep this short and focus on the list.
+Querying the OS to get hardware info.
 
-- [List item](http://example.com)
-- [List item](http://example.com)
+- Connected usb devices: `lsusb`
+- Details on a usb device: `lsusb -d vendorId:productId -v`
+- Get graphic controllers: `lspci | grep -i vga`
+- Get graphic controllers (detailed): `lshw -C video`
 
+## Misc
 
-## Another Section
+KEWL
 
-### Subsection
+- Nyancat: `nc -v nyancat.dakko.us 23`
 
-- [List item](http://example.com)
-- [List item](http://example.com)
+## Operating system
+
+Querying info about the OS
+
+- Architecture: `uname -m`
+- Distro: `cat /etc/*release`
+- Distro name: `lsb_release -cs`
+- Most recent kernel messages: `dmesg | tail`
+- Packages installed (debian|ubuntu): `dpkg -l`
+- Specific package installed: `dpkg -l nvidia*`
+
+### Disk
+
+- Mounted partitions (in human-friendly units): `df -h`
+- Summary of disk space used by directories: `du -hs *`
 
 
 ## Contribute
