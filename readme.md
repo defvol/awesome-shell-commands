@@ -8,8 +8,10 @@
 - [Hardware specs](#hardware-specs)
 - [Media](#media)
 - [Misc](#misc)
+- [Networking](#networking)
 - [Operating system](#operating-system)
   - [Disk](#disk)
+- [Security](#security)
 
 
 ## Hardware specs
@@ -24,6 +26,10 @@ Querying the OS to get hardware info.
 ## Media
 
 From GIFs to movie editing.
+
+- Download video from youtube: `youtube-dl https://www.youtube.com/watch?v=tN12Tg5ttpk -f mp4`
+- Extract audio from video: `ffmpeg -i ytcracker\ -\ meganerd-tN12Tg5ttpk.mp4 meganerd.mp3`
+- Play mp3: `ffplay meganerd.mp3` `mplayer meganerd.mp3`
 
 ### File conversion
 
@@ -60,6 +66,16 @@ ffmpeg -i frames/%05d.png timelapse.mp4
 KEWL
 
 - Nyancat: `nc -v nyancat.dakko.us 23`
+- Record X11 action: `cnee --record -o automate-this.xnr --mouse --events-to-record 1000 --time 2`
+- Replay X11 action: `cnee --replay -f automate-this.xnr --time 2`
+
+## Networking
+
+Connect, scan, and ping the interwebz.
+
+- Connect to VPN: `nmcli con up id sub.kewlvpn.lol`
+- Check avail networks: `nmcli con`
+- Incognito browsing: `firefox --private-window` `chromium-browser --incognito`
 
 ## Operating system
 
@@ -70,6 +86,7 @@ Querying info about the OS
 - Distro name: `lsb_release -cs`
 - Most recent kernel messages: `dmesg | tail`
 - Packages installed (debian|ubuntu): `dpkg -l`
+- List all processes sorted by memory: `ps aux --sort -rss`
 - Specific package installed: `dpkg -l nvidia*`
 - Watch memory every 5 seconds: `watch -n 5 free -m`
 
@@ -77,6 +94,10 @@ Querying info about the OS
 
 - Mounted partitions (in human-friendly units): `df -h`
 - Summary of disk space used by directories: `du -hs *`
+
+## Security
+
+- Add password to PDF: `pdftk [mydoc].pdf output [mydoc.128].pdf owner_pw [foo] user_pw [baz]`
 
 
 ## Contribute
