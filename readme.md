@@ -11,6 +11,7 @@
 - [Networking](#networking)
 - [Operating system](#operating-system)
   - [Disk](#disk)
+- [Programmer](#programmer)
 - [Security](#security)
 
 
@@ -50,7 +51,7 @@ convert mem-01.gif -fuzz 10% -layers Optimize optimized.gif
 ### Video editing
 
 - Clip video (starting from second 3): `ffmpeg -i take-3.mp4 -ss 00:00:03 -t 00:02:04 output.mp4`
-- Crop video: `ffmpeg -i in.mp4 -filter:v "crop=out_w:out_h:x:y" out.mp4`
+- Crop video: `ffmpeg -i in.mp4 -filter:v "crop=out_w:out_h:x:y" out.mp4` [[ref]](https://video.stackexchange.com/questions/4563/how-can-i-crop-a-video-with-ffmpeg#4571)
 - Speed video up: `ffmpeg -i take-4.mp4 -filter:v "setpts=0.5*PTS" take-4-faster.mp4`
 - Remove audio from video: `ffmpeg -i loud.mp4 -c copy -an muted.mp4`
 - Resize video: `ffmpeg -i larger.mp4 -filter:v scale=720:-1 -c:a copy smaller.mp4`
@@ -65,9 +66,13 @@ ffmpeg -i frames/%05d.png timelapse.mp4
 
 KEWL
 
+- Compress a directory: `tar -zcvf archive-name.tar.gz directory-name`
+- Zip a directory: `zip -r foo.zip foo/`
+- Delete old files: `rm $(ls -lh *csv | grep "Dec 18" | cut -d' ' -f11)`
 - Nyancat: `nc -v nyancat.dakko.us 23`
 - Record X11 action: `cnee --record -o automate-this.xnr --mouse --events-to-record 1000 --time 2`
 - Replay X11 action: `cnee --replay -f automate-this.xnr --time 2`
+- Rotate the screen: `xrandr --output HDMI-1 --rotate inverted` [[ref]](https://askubuntu.com/questions/95812/how-can-i-rotate-my-display-in-the-most-easy-way)
 
 ## Networking
 
@@ -84,6 +89,7 @@ Querying info about the OS
 - Architecture: `uname -m`
 - Distro: `cat /etc/*release`
 - Distro name: `lsb_release -cs`
+- Find process running on a specific port: `ss -lptn 'sport = :3000'`
 - Most recent kernel messages: `dmesg | tail`
 - Packages installed (debian|ubuntu): `dpkg -l`
 - List all processes sorted by memory: `ps aux --sort -rss`
@@ -94,11 +100,30 @@ Querying info about the OS
 
 - Mounted partitions (in human-friendly units): `df -h`
 - Summary of disk space used by directories: `du -hs *`
+- List virtualbox disks: `VBoxManage list hdds`
+- Close a stuck virtual box disk so you can remove it: `VBoxManage closemedium disk 633abeef-c3a0-43b0-b371-1238adeac4c` [[ref]](https://stackoverflow.com/questions/19176359/how-to-get-the-last-commit-id-of-a-remote-repo-using-curl-like-command#19176626)
+
+## Programmer
+
+Optimizing workflow for the lazy programmer
+
+- Delete all node_modules recursively: `find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +`
+- Delete all containers named like mongo: `docker rm $(docker ps -a | grep mongo | cut -f 1 -d' ')`
+- Stop all containers: `docker stop $(docker ps -a -q)`
+- Remove all containers: `docker rm $(docker ps -a -q)`
+- Remove all images: `docker rmi $(docker images -q)`
+- Get latest commit id: `echo $(git log --format="%h" -n 1)` [[ref]](https://stackoverflow.com/questions/19176359/how-to-get-the-last-commit-id-of-a-remote-repo-using-curl-like-command#19176626)
+- Updating author in git history:
+```sh
+git rebase -i -p <commit-to-start-from>
+git commit --amend --author="John Snow <jsnow@thewall.com>"
+```
 
 ## Security
 
 - Add password to PDF: `pdftk [mydoc].pdf output [mydoc.128].pdf owner_pw [foo] user_pw [baz]`
-
+- Symmetric encryption using GPG: `gpg -c filename`
+- Encrypt a zipfile: `zip --encrypt file.zip.enc file`
 
 ## Contribute
 
