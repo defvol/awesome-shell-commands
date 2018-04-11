@@ -73,6 +73,7 @@ KEWL
 - Record X11 action: `cnee --record -o automate-this.xnr --mouse --events-to-record 1000 --time 2`
 - Replay X11 action: `cnee --replay -f automate-this.xnr --time 2`
 - [Rotate the screen](https://askubuntu.com/questions/95812/how-can-i-rotate-my-display-in-the-most-easy-way): `xrandr --output HDMI-1 --rotate inverted`
+- Weather: `curl http://wttr.in/mexico-city`
 
 ## Networking
 
